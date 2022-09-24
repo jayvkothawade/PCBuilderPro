@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Row, Col, Container } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import Mostpopularcategory from "./Mostpopularcategory";
+// sample comment
 
 
 function welcome() {
