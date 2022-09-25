@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Mostpopularcategory() {
     /* const components = [
         {
@@ -39,160 +41,144 @@ function Mostpopularcategory() {
         //       </Card>
         //     </Col>
         // </Row>
-        <div>
+        <div className="container">
             <div>
                 <h1 className="mt-5 pb-2" style={{ fontWeight: "bold", color: "#A31A26", textAlign: "center", fontFamily: "Concert One, cursive" }}>MOST POPULAR CATEGORIES &#129321;</h1>
                 <hr className="text-center mb-4" style={{ width: "20%", marginLeft: "40%", backgroundColor: "black" }} />
             </div>
             <div className="row">
-                <div className="col-md-3 col-sm-12">
-                    <div className="card p-1 m-1" style={{ width: "18rem" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_laptops_062022.jpg" alt="Card cap" />
-                        <div className="card-body">
-                            <p className="card-text text-center" style={{ fontWeight: "bold" }}>LAPTOPS</p>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div className="col-md-3 col-sm-12">
-                    <div className="card" style={{ width: "18rem" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_desktops_062022.jpg" alt="Card cap" />
-                        <div className="card-body">
-                            <p className="card-text text-center" style={{ fontWeight: "bold" }}>DESKTOP</p>
+                    <Link>
+                        <div className="card" style={{ width: "15rem" }}>
+                            <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_desktops_062022.jpg" alt="Card cap" />
+                            <div className="card-body">
+                                <p className="card-text text-center" style={{ fontWeight: "bold" }}>DESKTOP</p>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
 
 
                 <div className="col-md-3 col-sm-12">
-                    <div className="card" style={{ width: "18rem" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_monitors_062022a.jpg" alt="Card cap" />
-                        <div className="card-body">
-                            <p className="card-text text-center" style={{ fontWeight: "bold" }}>MONITORS</p>
+                    <Link>
+                        <div className="card" style={{ width: "15rem" }}>
+                            <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_monitors_062022a.jpg" alt="Card cap" />
+                            <div className="card-body">
+                                <p className="card-text text-center" style={{ fontWeight: "bold" }}>MONITORS</p>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
 
                 <div className="col-md-3 col-sm-12">
-                    <div className="card" style={{ width: "18rem" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_videoCards500.jpg" alt="Card cap" />
-                        <div className="card-body">
-                            <p className="card-text text-center" style={{ fontWeight: "bold" }}>GRAPHICS CARDS</p>
+                    <Link>
+                        <div className="card" style={{ width: "15rem" }}>
+                            <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_videoCards500.jpg" alt="Card cap" />
+                            <div className="card-body">
+                                <p className="card-text text-center" style={{ fontWeight: "bold" }}>GRAPHICS CARDS</p>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
 
                 <div className="col-md-3 col-sm-12">
-                    <div className="card" style={{ width: "18rem" }}>
+                    <Link>
+                    <div className="card" style={{ width: "15rem" }}>
                         <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_IntelAMDProcessors500.jpg" alt="Card cap" />
                         <div className="card-body">
                             <p className="card-text text-center" style={{ fontWeight: "bold" }}>PROCESSORS</p>
                         </div>
                     </div>
-                </div>
+                    </Link>
 
+                </div>
+            </div>
+            <div className="row">
                 <div className="col-md-3 col-sm-12">
-                    <div className="card" style={{ width: "18rem" }}>
+                    <Link>
+                    <div className="card" style={{ width: "15rem" }}>
                         <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_motherboards_062022.jpg" alt="Card cap" />
                         <div className="card-body">
                             <p className="card-text text-center" style={{ fontWeight: "bold" }}> MOTHERBOARDS</p>
                         </div>
                     </div>
+                    </Link>
                 </div>
 
                 <div className="col-md-3 col-sm-12">
-                    <div className="card" style={{ width: "18rem" }}>
+                    <Link>
+                    <div className="card" style={{ width: "15rem" }}>
                         <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_ComputerCases500_062022.jpg" alt="Card cap" />
                         <div className="card-body">
                             <p className="card-text text-center" style={{ fontWeight: "bold" }}>COMPUTER CASES</p>
                         </div>
                     </div>
+                    </Link>
                 </div>
 
                 <div className="col-md-3 col-sm-12">
-                    <div className="card p-1 m-1" style={{ width: "18rem" }}>
+                    <Link>
+                    <div className="card p-1 m-1" style={{ width: "15rem" }}>
                         <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_ssds_062022.jpg" alt="Card cap" />
                         <div className="card-body">
                             <p className="card-text text-center" style={{ fontWeight: "bold" }}>SSDs, HARD DRIVES</p>
                         </div>
                     </div>
+                    </Link>
                 </div>
 
                 <div className="col-md-3 col-sm-12">
-                    <div className="card p-1 m-1" style={{ width: "18rem" }}>
+                    <Link>
+                    <div className="card p-1 m-1" style={{ width: "15rem" }}>
                         <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_memory_062022.jpg" alt="Card cap" />
                         <div className="card-body">
                             <p className="card-text text-center" style={{ fontWeight: "bold" }}>MEMORY</p>
                         </div>
                     </div>
+                    </Link>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-3 col-sm-12">
+
                 </div>
 
                 <div className="col-md-3 col-sm-12">
-                    <div className="card p-1 m-1" style={{ width: "18rem" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_PowerSupplies500_062022.jpg" alt="Card cap" />
+                    <Link>
+                    <div className="card p-1 m-1" style={{ width: "15rem" }}>
+                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_memory_062022.jpg" alt="Card cap" />
                         <div className="card-body">
                             <p className="card-text text-center" style={{ fontWeight: "bold" }}>POWER SUPPLIES</p>
                         </div>
                     </div>
+                    </Link>
                 </div>
 
-
                 <div className="col-md-3 col-sm-12">
-                    <div className="card p-1 m-1" style={{ width: "18rem" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_cooling_500.jpg" alt="Card cap" />
+                    <Link>
+                    <div className="card p-1 m-1" style={{ width: "15rem" }}>
+                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_memory_062022.jpg" alt="Card cap" />
                         <div className="card-body">
                             <p className="card-text text-center" style={{ fontWeight: "bold" }}>AIR & WATER COOLING</p>
                         </div>
                     </div>
+                    </Link>
                 </div>
 
                 <div className="col-md-3 col-sm-12">
-                    <div className="card p-1 m-1" style={{ width: "18rem" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_WirelessNetworking500_072021.jpg" alt="Card cap" />
-                        <div className="card-body">
-                            <p className="card-text text-center" style={{ fontWeight: "bold" }}>WIRELESS NETWORKING</p>
-                        </div>
-                    </div>
+
                 </div>
 
-                <div className="col-md-3 col-sm-12">
-                    <div className="card p-1 m-1" style={{ width: "18rem", fontFamily: "" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_televisions_062022b.jpg" alt="Card cap" />
-                        <div className="card-body">
-                            <p className="card-text text-center" style={{ fontWeight: "bold" }}>TELEVISIONS</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-md-3 col-sm-12">
-                    <div className="card p-1 m-1" style={{ width: "18rem" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_11_2021APPLE500.jpg" alt="Card cap" />
-                        <div className="card-body">
-                            <p className="card-text text-center" style={{ fontWeight: "bold" }}> APPLE PRODUCTS</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-md-3 col-sm-12">
-                    <div className="card p-1 m-1" style={{ width: "18rem" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_3Dprinting_062022.jpg" alt="Card cap" />
-                        <div className="card-body">
-                            <p className="card-text text-center" style={{ fontWeight: "bold" }}>MAKER PRODUCTS</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-md-3 col-sm-12">
-                    <div className="card p-1 m-1" style={{ width: "18rem" }}>
-                        <img className="card-img-top" src="https://60a99bedadae98078522-a9b6cded92292ef3bace063619038eb1.ssl.cf2.rackcdn.com/images_CategoryImages_printers_062022.jpg" alt="Card cap" />
-                        <div className="card-body">
-                            <p className="card-text text-center" style={{ fontWeight: "bold" }}>PRINTERS</p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
+
+
+
         </div>
+
+
     );
 };
 

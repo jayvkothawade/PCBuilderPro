@@ -4,10 +4,10 @@ import {Button, Col, Container, Form, Row} from "react-bootstrap";
 const LoginForm = () => {
     return (
         <>
-            <Container>
-                <h1 className="shadow-sm text-success mt-5 p-3 text-center rounded">Login</h1>
-                <Row className="mt-5">
-                    <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
+            <div>
+                <h2 className="shadow-sm bg-dark text-light mt-0 p-3 text-center">Login</h2>
+                <Row className="mt-1">
+                    <Col lg={4} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
                         <Form>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>UserID</Form.Label>
@@ -21,14 +21,14 @@ const LoginForm = () => {
 
                             <br></br>
 
-                            <Button variant="success btn-block" type="submit">
+                            <Button variant="primary btn" type="submit">
                                 Login
                             </Button>
                         </Form>
                     </Col>
                 </Row>
                 <h6 className="mt-5 p-5 text-center text-secondary ">PCBuilderPro</h6>
-            </Container>
+            </div>
         </>
     );
 };

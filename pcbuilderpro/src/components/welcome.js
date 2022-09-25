@@ -7,9 +7,12 @@ import Mostpopularcategory from "./Mostpopularcategory";
 
 function welcome() {
     return (
-        <div class="container">
-            <div class="row">
-                <div class="col-8">
+        
+        <div className="container">
+
+            <div className="row">
+                <div className="col-8">
+                    <br></br>
                     <Carousel>
                         <Carousel.Item>
                             <img
@@ -53,7 +56,8 @@ function welcome() {
                         </Carousel.Item>
                     </Carousel>
                 </div>
-                <div class="col-4">
+                <div className="col-4">
+                    <br></br>
                     <Card className="shadow-lg">
                         <Card.Body>
                             <img
@@ -70,7 +74,7 @@ function welcome() {
             <br></br>
             <br></br>
             <div>
-                <Container fluid>
+                <Container>
                     <h1 className="text-center" style={{ color: '#A31A26', fontWeight: 'bold', fontFamily: "Concert One, cursive" }}>BE CHOOSY, BE YOU  &#128526;</h1>
                     <hr className="text-center mb-4" style={{ width: "20%", marginLeft: "38%", backgroundColor: "black" }} />
                     <Row>

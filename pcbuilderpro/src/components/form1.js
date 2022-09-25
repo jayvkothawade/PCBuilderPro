@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import "./form1.css"
+
 
 
 function Form1(){
@@ -33,12 +33,12 @@ function Form1(){
 
  return <div>
  <div>
-            <h2 className="bg-success text-light p-3">User Registration</h2>
+            <h2 className="bg-dark text-light p-3 text-center">User Registration</h2>
             <br></br>
             <br></br>
-            <div className="container w-25">
+            <div className="container m-auto w-25">
                 <form action="" onSubmit={handleSubmit} >
-                    <div class="mb-3 mt-3">
+                    <div class="mb-3 mt-3 center">
                         {/* <label for="name" class="form-label">Name:  </label> */}
                         <input className="form-control" type="text" name="name" placeholder="Name" value={inputs.name} onChange={handleChange} />
                     </div>
@@ -66,7 +66,7 @@ function Form1(){
 
 
 
-                    <button type="submit" class="btn btn-primary" >Submit</button>
+                    <button type="submit" class="btn btn-primary"  >Submit</button>
                 </form>
             </div>
         </div>

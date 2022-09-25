@@ -40,6 +40,7 @@ function App() {
             <Route path="employees" element={<EmployeesList />}></Route>
             <Route path="updateemployee" element={<EmployeesUpdateForm />}></Route>
     </Route>
+    <Route path="/employees1" element={<EmployeesList/>}></Route>
 
    </Routes>
    
