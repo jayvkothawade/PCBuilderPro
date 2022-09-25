@@ -78,8 +78,8 @@ function welcome() {
                     <h1 className="text-center" style={{ color: '#A31A26', fontWeight: 'bold', fontFamily: "Concert One, cursive" }}>BE CHOOSY, BE YOU  &#128526;</h1>
                     <hr className="text-center mb-4" style={{ width: "20%", marginLeft: "38%", backgroundColor: "black" }} />
                     <Row>
-                        <Col className="m-o p-0"><img src="https://etimg.etb2bimg.com/photo/90213412.cms" alt="Intel-PCs" className="img-fluid m-0 p-0" style={{ height: '40vh', width: '100%', objectFit: 'cover' }}></img></Col>
-                        <Col className="m-0 p-0"><img src="https://fdn.gsmarena.com/imgroot/news/21/06/amd-computex/-1220x526/gsmarena_000.jpg" alt="AMD-PCs" className="img-fluid m-0 p-0" style={{ height: '40vh', width: '100%', objectFit: 'cover' }}></img></Col>
+                        <Col className="m-2 p-0"><img src="https://etimg.etb2bimg.com/photo/90213412.cms" alt="Intel-PCs" className="img-fluid m-0 p-0" style={{ height: '40vh', width: '100%', objectFit: 'cover' }}></img></Col>
+                        <Col className="m-2 p-0"><img src="https://fdn.gsmarena.com/imgroot/news/21/06/amd-computex/-1220x526/gsmarena_000.jpg" alt="AMD-PCs" className="img-fluid m-0 p-0" style={{ height: '40vh', width: '100%', objectFit: 'cover' }}></img></Col>
                     </Row>
                 </Container>
             </div>
