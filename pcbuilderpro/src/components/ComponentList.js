@@ -5,11 +5,18 @@ import AuthHeader from "./AuthHeader";
 //import "./CustomerList.css";
 
 const ComponentList = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + user.access_token
+  };
+
   const [responseData, setResponseData] = useState([]);
 
-  const custList = () => {
+  const compList = () => {
     axios
-      .get("http://localhost:8080/employee/components",{headers: AuthHeader})
+      .get("http://localhost:8080/employee/components",{headers: headers})
       .then((response) => {
         setResponseData(response.data);
       })
@@ -18,23 +25,39 @@ const ComponentList = () => {
       });
   };
 
+  const compDelete = evnt => {
+    
+    axios.delete('http://localhost:8080/employee/componentDelete/{id}', { headers: headers })
+        .then(response => {
+            compList();
+        })
+        .catch(error => {
+            console.log(evnt.target.value);
+            alert(error);
+        })
+};
+
   useEffect(() => {
-    custList();
+    compList();
   }, []);
 
   return (
     <>
+    <h2 className="bg-dark text-light p-3 text-center">Components List</h2>
       <div className="container">
-        <h2 className="heading">Components List</h2>
+        
         <br></br>
         <table class="table">
           <thead className="thead-dark">
             <tr>
               <th>Component ID</th>
               <th>Name</th>
-              <th>Catergory</th>
+              <th>Category</th>
               <th>Price</th>
-              <th>Status</th>
+              <th>Quantity</th>
+              <th>Description</th>
+              
+              
             </tr>
           </thead>
           <tbody>
@@ -44,7 +67,10 @@ const ComponentList = () => {
                 <td>{val.name}</td>
                 <td>{val.category}</td>
                 <td>{val.price}</td>
-                <td>{val.status}</td>
+                <td>{val.quantity}</td>
+                <td>{val.desciption}</td>
+                <td><Link to="/updatecomponent" state={val} class="btn btn-primary" >Update</Link> </td>
+                <td><button type="button" class="btn btn-danger" id={val.id} value={val.id} onClick={compDelete} >Delete</button> </td>
               </tr>
             ))}
           </tbody>

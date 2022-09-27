@@ -3,36 +3,36 @@ import axios from "axios";
 
 
 
-function Form1(){
+function Form1() {
 
- const [inputs, setInputs ] = useState({});
+    const [inputs, setInputs] = useState({});
 
- const handleChange = evnt =>{
-  let paramName = evnt.target.name;
-  let paramValue = evnt.target.value;
+    const handleChange = evnt => {
+        let paramName = evnt.target.name;
+        let paramValue = evnt.target.value;
 
-  setInputs(
-   values => ({...values,[paramName]:paramValue })
-  );
- };
+        setInputs(
+            values => ({ ...values, [paramName]: paramValue })
+        );
+    };
 
- const handleSubmit = evnt => {
-  evnt.preventDefault();
-  //alert(JSON.stringify(inputs));
+    const handleSubmit = evnt => {
+        evnt.preventDefault();
+        //alert(JSON.stringify(inputs));
 
-  axios.post('http://localhost:8080/register',inputs)
-  .then(response => {
-   alert(response.data);
-  })
-  .catch(error => {
-   alert(error);
-  });
+        axios.post('http://localhost:8080/register', inputs)
+            .then(response => {
+                alert(response.data);
+            })
+            .catch(error => {
+                alert(error);
+            });
 
 
- }; 
+    };
 
- return <div>
- <div>
+    return <div>
+        <div>
             <h2 className="bg-dark text-light p-3 text-center">User Registration</h2>
             <br></br>
             <div className="container m-auto w-25">
@@ -76,8 +76,8 @@ function Form1(){
                         {/* <label for="address" class="form-label">Address:  </label> */}
                         <input className="form-control" type="text" name="pincode" placeholder="Pin code" value={inputs.pincode} onChange={handleChange} />
                     </div>
-                    
-                    
+
+
 
 
 
@@ -86,6 +86,6 @@ function Form1(){
             </div>
         </div>
 
- </div>;
+    </div>;
 };
 export default Form1;

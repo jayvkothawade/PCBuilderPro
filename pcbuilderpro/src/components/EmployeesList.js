@@ -6,12 +6,20 @@ import AuthHeader from "./AuthHeader";
 
 
 function EmployeesList() {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + user.access_token
+    };
+
     const [responseData, setResponseData] = useState([]);
 
     const empList = () => {
-        axios.get('http://localhost:8080/employee/employees', {headers: AuthHeader})
+        axios.get('http://localhost:8080/employee/employees', { headers: headers })
             .then(response => {
                 setResponseData(response.data);
+                console.log(response.data);
             })
             .catch(error => {
                 alert(error);
@@ -26,7 +34,7 @@ function EmployeesList() {
     }, []);
 
     const empDelete = evnt => {
-        axios.delete('http://localhost:8080/employee/deleteEmployee/{id}' + evnt.target.value, {headers: AuthHeader})
+        axios.delete('http://localhost:8080/employee/deleteEmployee/{id}' + evnt.target.value, { headers: headers })
             .then(response => {
                 empList();
             })
@@ -37,8 +45,9 @@ function EmployeesList() {
 
     return (
         <div>
-            <div class="container mt-3">
-                <h2>Employees List</h2>
+            <h2 className="bg-dark text-light p-3 text-center">Employees List</h2>
+            <div class="container">
+
                 <br></br>
 
                 <table class="table table-striped">
@@ -46,28 +55,29 @@ function EmployeesList() {
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Password</th>
                             <th>Mobile</th>
-                            <th>Role</th>
+                            <th>Street</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Pin Code</th>
                             <th>Update</th>
-                            {/* <th>Image</th> */}
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             responseData.map(
-                                val => <tr key="{val.empId}">
+                                val => <tr key="{val.id}">
                                     <td>{val.name}</td>
                                     <td>{val.email}</td>
-                                    <td>{val.password}</td>
                                     <td>{val.mobile}</td>
-                                    <td>{val.role}</td>
+                                    <td>{val.street}</td>
+                                    <td>{val.city}</td>
+                                    <td>{val.state}</td>
+                                    <td>{val.pincode}</td>
                                     <td><Link to="/updateemployee" state={val} class="btn btn-primary" >Update</Link> </td>
-                                    {/* <td><Link to="" state={val.userid} class="btn btn-primary" >
-                                        <img src={"http://localhost:8080/images/" + val.image} width="70" height="70" alt="no image" ></img>
-                                    </Link></td> */}
-                                    <td><button type="button" class="btn btn-danger" id={val.EmpId} value={val.EmpId} onClick={empDelete} >Delete</button> </td>
+    
+                                    <td><button type="button" class="btn btn-danger" id={val.id} value={val.id} onClick={empDelete} >Delete</button> </td>
                                 </tr>
                             )
                         }

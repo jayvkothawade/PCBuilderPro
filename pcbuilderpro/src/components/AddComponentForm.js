@@ -30,12 +30,15 @@ function AddComponentForm() {
 
 
 
-        axios.post('http://localhost:8080/employee/addComponent', { inputs }, { headers: headers })
+        axios.post('http://localhost:8080/employee/addComponent', inputs , { headers: headers })
             .then(response => {
                 alert(response.data);
+                console.log(inputs);
+                console.log(headers);
             })
             .catch(error => {
                 alert(error);
+                console.log(headers);
             });
 
 
@@ -48,10 +51,10 @@ function AddComponentForm() {
             <div class="container mt-3">
                 <h2>Add Component Form</h2>
                 <form action="" onSubmit={handleSubmit} >
-                    <div class="mb-3 mt-3">
+                    {/* <div class="mb-3 mt-3">
                         <label for="compid" class="form-label"></label>
                         <input type="text" name="compid" placeholder="Component Id" value={inputs.compid} onChange={handleChange} />
-                    </div>
+                    </div> */}
                     <div class="mb-3">
                         <label for="category" class="form-label"></label>
                         <input type="text" name="category" placeholder="Category" value={inputs.category} onChange={handleChange} />

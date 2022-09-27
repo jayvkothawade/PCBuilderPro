@@ -24,8 +24,9 @@ const CustomerList = () => {
 
   return (
     <>
+    <h2 className="bg-dark text-light p-3 text-center">Customer List</h2>
       <div className="container">
-        <h2 className="heading">Customer List</h2>
+        
         <br></br>
 
         <table class="table">

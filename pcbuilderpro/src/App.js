@@ -9,6 +9,8 @@ import EmployeesAddForm from "./components/EmployeesAddform";
 import EmployeesList from "./components/EmployeesList";
 import EmployeesUpdateForm from "./components/EmployeesUpdateForm";
 import AddComponentForm from "./components/AddComponentForm";
+import UpdateComponentForm from "./components/UpdateComponentForm";
+
 
 import AMDMotherBoard from "./components/Products/AMD/AMDMotherBoard";
 import IntelMotherBoard from "./components/Products/Intel/IntelMotherBoard";
@@ -46,6 +48,7 @@ function App() {
             <Route path="employees" element={<EmployeesList />}></Route>
             <Route path="updateemployee" element={<EmployeesUpdateForm />}></Route>
             <Route path="addcomponent" element={<AddComponentForm />}></Route>
+            <Route path="updatecomponent" element={<UpdateComponentForm />}></Route>
             
 
           </Route>
