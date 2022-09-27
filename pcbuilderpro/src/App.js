@@ -19,7 +19,7 @@ import IntelProcessor from "./components/Products/Intel/IntelProcessor";
 import AMDProcessor from "./components/Products/AMD/AMDProcessor";
 import jwt_decode from "jwt-decode";
 
-import {Navigate, BrowserRouter, Routes, Route } from "react-router-dom";
+import { Navigate, BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -43,18 +43,23 @@ function App() {
             <Route path='login' element={<LoginForm />} ></Route>
             <Route path='registeruser' element={<Form1 />} ></Route>
             <Route path="components" element={<ComponentList />}></Route>
-            <Route path="customers" element={<ProtectedRoute><CustomerList /></ProtectedRoute>}></Route>
+            {/* Admin Routes */}
+            <Route path="customers" element={<AdminRoute><CustomerList /></AdminRoute>}></Route>
 
-            <Route path="add-employee" element={<EmployeesAddForm />}></Route>
-            <Route path="employees" element={<EmployeesList />}></Route>
-            <Route path="updateemployee" element={<EmployeesUpdateForm />}></Route>
-            <Route path="addcomponent" element={<AddComponentForm />}></Route>
-            <Route path="updatecomponent" element={<UpdateComponentForm />}></Route>
-            
+            <Route path="add-employee" element={<AdminRoute><EmployeesAddForm /></AdminRoute>}></Route>
+            <Route path="employees" element={<AdminRoute><EmployeesList /></AdminRoute>}></Route>
+            <Route path="updateemployee" element={<AdminRoute><EmployeesUpdateForm /></AdminRoute>}></Route>
+            <Route path="addcomponent" element={<AdminRoute><AddComponentForm /></AdminRoute>}></Route>
+            <Route path="updatecomponent" element={<AdminRoute><UpdateComponentForm /></AdminRoute>}></Route>
+
 
           </Route>
+<<<<<<< HEAD
           <Route path="/cooling" element={<CoolingSystem />}></Route>
           
+=======
+
+>>>>>>> 3dc9434990091789d4bc61f5b3ffd11115b40f37
           {/* Route For AMDProcessor and AMDMotherBoard  */}
           <Route
             path="/products/AMDProcessor"
@@ -79,7 +84,7 @@ function App() {
 
       </BrowserRouter>
 
-      
+
 
 
     </div>
@@ -88,20 +93,49 @@ function App() {
 
 }
 
-function ProtectedRoute({ children }) {
- // let myjwt = localStorage.getItem("user");
- let role;
- if (localStorage.getItem("user") != null) {
-  var decoded = jwt_decode(localStorage.getItem("user"));
-  const role = decoded.roles[0];   // role = admin
-}
+function AdminRoute({ children }) {
+  // let myjwt = localStorage.getItem("user");
+  let role;
+  if (localStorage.getItem("user") != null) {
+    const decoded = jwt_decode(localStorage.getItem("user"));
+    role = decoded.roles[0];   // role = admin
+  }
 
-  //console.log(!role === "admin");
   // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
-  if (!role === "admin" || localStorage.getItem("user") === null) {
+  if (role != "admin" || localStorage.getItem("user") === null) {
     return <Navigate to="/login" replace={true} />;
   }
 
+  return children;
+}
+
+function CustomerRoute({ children }) {
+  // let myjwt = localStorage.getItem("user");
+  let role;
+  if (localStorage.getItem("user") != null) {
+    const decoded = jwt_decode(localStorage.getItem("user"));
+    role = decoded.roles[0];   // role = admin
+  }
+
+  // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
+  if (role != "customer" || localStorage.getItem("user") === null) {
+    return <Navigate to="/login" replace={true} />;
+  }
+  return children;
+}
+
+function EmployeeRoute({ children }) {
+  // let myjwt = localStorage.getItem("user");
+  let role;
+  if (localStorage.getItem("user") != null) {
+    const decoded = jwt_decode(localStorage.getItem("user"));
+    role = decoded.roles[0];   // role = admin
+  }
+
+  // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
+  if (role != "employee" || localStorage.getItem("user") === null) {
+    return <Navigate to="/login" replace={true} />;
+  }
   return children;
 }
 
