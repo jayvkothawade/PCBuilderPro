@@ -27,7 +27,7 @@ const ComponentList = () => {
 
   const compDelete = evnt => {
     
-    axios.delete('http://localhost:8080/employee/componentDelete/{id}', { headers: headers })
+    axios.delete("http://localhost:8080/employee/componentDelete/{id}"+evnt.target.value, { headers: headers })
         .then(response => {
             compList();
         })

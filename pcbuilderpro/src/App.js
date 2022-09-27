@@ -10,6 +10,7 @@ import EmployeesList from "./components/EmployeesList";
 import EmployeesUpdateForm from "./components/EmployeesUpdateForm";
 import AddComponentForm from "./components/AddComponentForm";
 import UpdateComponentForm from "./components/UpdateComponentForm";
+import CoolingSystem from "./components/CoolingSystem";
 
 
 import AMDMotherBoard from "./components/Products/AMD/AMDMotherBoard";
@@ -52,6 +53,7 @@ function App() {
             
 
           </Route>
+          <Route path="/cooling" element={<CoolingSystem />}></Route>
           
           {/* Route For AMDProcessor and AMDMotherBoard  */}
           <Route

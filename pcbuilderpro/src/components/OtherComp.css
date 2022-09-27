@@ -1,0 +1,60 @@
+header a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+main {
+  padding: 0.5rem;
+}
+h2 {
+  padding: 5px;
+}
+p {
+  margin-bottom: 0.5rem;
+}
+
+.product {
+  display: flex;
+  margin: 10px 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.productEach {
+  background-image: linear-gradient(130deg, white, rgba(232, 230, 230, 0.819));
+  width: 200px;
+  border: 0px black solid;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 0px 1px 22px grey;
+}
+
+img {
+  width: 120px;
+  height: 120px;
+}
+
+.productImage {
+  text-align: center;
+  height: 120px;
+}
+.productInfo {
+  padding: 5px;
+}
+
+.Head {
+  text-align: center;
+}
+
+.subcat {
+  text-align: center;
+}
+
+.buttonproduct {
+  width: 150px;
+}
+
+.buttondiv {
+  text-align: center;
+}
