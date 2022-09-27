@@ -35,7 +35,6 @@ function Form1(){
  <div>
             <h2 className="bg-dark text-light p-3 text-center">User Registration</h2>
             <br></br>
-            <br></br>
             <div className="container m-auto w-25">
                 <form action="" onSubmit={handleSubmit} >
                     <div class="mb-3 mt-3 center">
@@ -60,9 +59,25 @@ function Form1(){
                     <br></br>
                     <div class="mb-3">
                         {/* <label for="address" class="form-label">Address:  </label> */}
-                        <input className="form-control" type="text" name="address" placeholder="Address" value={inputs.address} onChange={handleChange} />
+                        <input className="form-control" type="text" name="street" placeholder="Street" value={inputs.street} onChange={handleChange} />
                     </div>
                     <br></br>
+                    <div class="mb-3">
+                        {/* <label for="address" class="form-label">Address:  </label> */}
+                        <input className="form-control" type="text" name="city" placeholder="City" value={inputs.city} onChange={handleChange} />
+                    </div>
+                    <br></br>
+                    <div class="mb-3">
+                        {/* <label for="address" class="form-label">Address:  </label> */}
+                        <input className="form-control" type="text" name="state" placeholder="State" value={inputs.state} onChange={handleChange} />
+                    </div>
+                    <br></br>
+                    <div class="mb-3">
+                        {/* <label for="address" class="form-label">Address:  </label> */}
+                        <input className="form-control" type="text" name="pincode" placeholder="Pin code" value={inputs.pincode} onChange={handleChange} />
+                    </div>
+                    
+                    
 
 
 

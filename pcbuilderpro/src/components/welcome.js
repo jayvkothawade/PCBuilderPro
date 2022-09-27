@@ -2,12 +2,13 @@ import React from 'react';
 import { Card, Row, Col, Container } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import Mostpopularcategory from "./Mostpopularcategory";
+import { Link } from "react-router-dom";
 // sample comment
 
 
 function welcome() {
     return (
-        
+
         <div className="container">
 
             <div className="row">
@@ -22,7 +23,7 @@ function welcome() {
                                 alt="First slide"
                             />
                             <Carousel.Caption>
-                                <h3>First slide label</h3>
+                                <h3>Our Setups</h3>
                                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
@@ -78,8 +79,20 @@ function welcome() {
                     <h1 className="text-center" style={{ color: '#A31A26', fontWeight: 'bold', fontFamily: "Concert One, cursive" }}>BE CHOOSY, BE YOU  &#128526;</h1>
                     <hr className="text-center mb-4" style={{ width: "20%", marginLeft: "38%", backgroundColor: "black" }} />
                     <Row>
-                        <Col className="m-2 p-0"><img src="https://etimg.etb2bimg.com/photo/90213412.cms" alt="Intel-PCs" className="img-fluid m-0 p-0" style={{ height: '40vh', width: '100%', objectFit: 'cover' }}></img></Col>
-                        <Col className="m-2 p-0"><img src="https://fdn.gsmarena.com/imgroot/news/21/06/amd-computex/-1220x526/gsmarena_000.jpg" alt="AMD-PCs" className="img-fluid m-0 p-0" style={{ height: '40vh', width: '100%', objectFit: 'cover' }}></img></Col>
+
+                        <Col className="m-2 p-0">
+                            <Link to="/products/intelProcessor">
+                                <img src="https://etimg.etb2bimg.com/photo/90213412.cms" alt="Intel-PCs" className="img-fluid m-0 p-0" style={{ height: '40vh', width: '100%', objectFit: 'cover' }}></img>
+                            </Link>
+                        </Col>
+
+
+                        <Col className="m-2 p-0">
+                            <Link to="/products/AMDProcessor">
+                                <img src="https://fdn.gsmarena.com/imgroot/news/21/06/amd-computex/-1220x526/gsmarena_000.jpg" alt="AMD-PCs" className="img-fluid m-0 p-0" style={{ height: '40vh', width: '100%', objectFit: 'cover' }}></img>
+                            </Link>
+                        </Col>
+
                     </Row>
                 </Container>
             </div>

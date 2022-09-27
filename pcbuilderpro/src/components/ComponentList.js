@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import AuthHeader from "./AuthHeader";
 //import "./CustomerList.css";
 
 const ComponentList = () => {
@@ -8,7 +9,7 @@ const ComponentList = () => {
 
   const custList = () => {
     axios
-      .get("http://localhost:8080/components")
+      .get("http://localhost:8080/employee/components",{headers: AuthHeader})
       .then((response) => {
         setResponseData(response.data);
       })

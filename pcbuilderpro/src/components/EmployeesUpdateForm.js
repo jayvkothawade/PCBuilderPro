@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import AuthHeader from "./AuthHeader";
 
 function EmployeesUpdateForm() {
     const empState = useLocation();
@@ -23,7 +24,7 @@ function EmployeesUpdateForm() {
         evnt.preventDefault();
         // alert(JSON.stringify(inputs));
 
-        axios.put('http://localhost:8080/updateemployee', inputs)
+        axios.put('http://localhost:8080/employee/updateemployee/{id}', inputs, {headers: AuthHeader})
             .then(response => {
                 alert(response.data);
                 navigate('/employees');

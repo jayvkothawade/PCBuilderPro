@@ -2,13 +2,14 @@ import React from 'react';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AuthHeader from "./AuthHeader";
 
 
 function EmployeesList() {
     const [responseData, setResponseData] = useState([]);
 
     const empList = () => {
-        axios.get('http://localhost:8080/employees')
+        axios.get('http://localhost:8080/employee/employees', {headers: AuthHeader})
             .then(response => {
                 setResponseData(response.data);
             })
@@ -24,8 +25,8 @@ function EmployeesList() {
 
     }, []);
 
-    const carDelete = evnt => {
-        axios.delete('' + evnt.target.value)
+    const empDelete = evnt => {
+        axios.delete('http://localhost:8080/employee/deleteEmployee/{id}' + evnt.target.value, {headers: AuthHeader})
             .then(response => {
                 empList();
             })
@@ -66,7 +67,7 @@ function EmployeesList() {
                                     {/* <td><Link to="" state={val.userid} class="btn btn-primary" >
                                         <img src={"http://localhost:8080/images/" + val.image} width="70" height="70" alt="no image" ></img>
                                     </Link></td> */}
-                                    <td><button type="button" class="btn btn-danger" id={val.EmpId} value={val.EmpId} onClick={carDelete} >Delete</button> </td>
+                                    <td><button type="button" class="btn btn-danger" id={val.EmpId} value={val.EmpId} onClick={empDelete} >Delete</button> </td>
                                 </tr>
                             )
                         }

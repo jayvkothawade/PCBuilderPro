@@ -1,10 +1,18 @@
 import React from 'react';
 import { useState } from "react";
 import axios from "axios";
+import AuthHeader from "./AuthHeader";
 
 
 
 function EmployeesAddForm() {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + user.access_token
+    };
+
     const [inputs, setInputs] = useState({});
 
     const handleChange = evnt => {
@@ -20,7 +28,7 @@ function EmployeesAddForm() {
         evnt.preventDefault();
         alert(JSON.stringify(inputs));
 
-        axios.post('http://localhost:8080/add-employee', inputs)
+        axios.post('http://localhost:8080/api/register/employee', {inputs}, { headers: headers })
             .then(response => {
                 alert(response.data);
             })
@@ -53,10 +61,10 @@ function EmployeesAddForm() {
                         <label for="mobile" class="form-label"></label>
                         <input type="text" name="mobile" placeholder="Mobile" value={inputs.mobile} onChange={handleChange} />
                     </div>
-                    <div class="mb-3">
+                    {/* <div class="mb-3">
                         <label for="role" class="form-label"></label>
                         <input type="text" name="role" placeholder="Role" value={inputs.role} onChange={handleChange} />
-                    </div>
+                    </div> */}
                     <button type="submit" class="btn btn-primary" >Add</button>
                 </form>
             </div>
