@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import AuthHeader from "./AuthHeader";
 //import { Link } from "react-router-dom";
 
 
@@ -8,7 +9,7 @@ const CustomerList = () => {
 
   const custList = () => {
     axios
-      .get("http://localhost:8080/customers")
+      .get("http://localhost:8080/employee/customers",{headers: AuthHeader})
       .then((response) => {
         setResponseData(response.data);
       })
