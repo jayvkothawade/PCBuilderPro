@@ -7,7 +7,7 @@ const IntelMotherBoard = () => {
 
     const custList = () => {
         axios
-            .get("http://localhost:8080/components")
+            .get("http://localhost:8080/employee/components")
             .then((response) => {
                 setResponseData(response.data);
             })
@@ -32,12 +32,12 @@ const IntelMotherBoard = () => {
                 <div className="product">
                     {responseData.map(
                         (product) =>
-                            product.category == "motherboard" &&
+                            product.category == "motherboard-i" &&
                             product.quantity > 0 && (
                                 <div className="productEach" key={product.compId}>
                                     <div className="productImage">
                                         <img
-                                            src={`/Images/Motherboard/${product.link}.jpg`}
+                                            src={`/images/Intel/${product.link}.jpg`}
                                             alt={product.name}
                                         ></img>
                                     </div>

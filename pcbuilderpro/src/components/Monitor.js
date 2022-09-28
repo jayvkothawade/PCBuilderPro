@@ -8,7 +8,7 @@ const Monitor = () => {
 
   const custList = () => {
     axios
-      .get("http://localhost:8080/components")
+      .get("http://localhost:8080/employee/components")
       .then((response) => {
         setResponseData(response.data);
       })
@@ -33,12 +33,12 @@ const Monitor = () => {
         <div className="product">
           {responseData.map(
             (product) =>
-              product.category === "computercase" &&
+              product.category === "monitor" &&
               product.quantity > 0 && (
                 <div className="productEach" key={product.compId}>
                   <div className="productImage">
                     <img
-                      src={`/Images/Monitor/${product.link}.jpg`}
+                      src={`/images/Monitors/${product.link}.jpg`}
                       alt={product.name}
                     ></img>
                   </div>

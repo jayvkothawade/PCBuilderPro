@@ -8,7 +8,7 @@ const PowerSupply = () => {
 
   const custList = () => {
     axios
-      .get("http://localhost:8080/components")
+      .get("http://localhost:8080/employee/components")
       .then((response) => {
         setResponseData(response.data);
       })
@@ -27,7 +27,7 @@ const PowerSupply = () => {
 
       <main>
         <div className="subcat">
-          <h2>Motherboard</h2>
+          <h2>Power Supply</h2>
         </div>
 
         <div className="product">
@@ -38,7 +38,7 @@ const PowerSupply = () => {
                 <div className="productEach" key={product.compId}>
                   <div className="productImage">
                     <img
-                      src={`/Images/Power/${product.link}.jpg`}
+                      src={`/images/PowerSupply/${product.link}.jpg`}
                       alt={product.name}
                     ></img>
                   </div>

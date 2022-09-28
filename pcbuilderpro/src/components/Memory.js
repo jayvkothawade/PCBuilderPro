@@ -8,7 +8,7 @@ const Memory = () => {
 
   const custList = () => {
     axios
-      .get("http://localhost:8080/components")
+      .get("http://localhost:8080/employee/components")
       .then((response) => {
         setResponseData(response.data);
       })
@@ -38,7 +38,7 @@ const Memory = () => {
                 <div className="productEach" key={product.compId}>
                   <div className="productImage">
                     <img
-                      src={`/Images/Memory/${product.link}.jpg`}
+                      src={`/images/Memory/${product.link}.jpg`}
                       alt={product.name}
                     ></img>
                   </div>

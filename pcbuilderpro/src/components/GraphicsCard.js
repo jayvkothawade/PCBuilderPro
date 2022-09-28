@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./OtherComp.css";
 import { NavLink } from "react-router-dom";
 
-const CoolingSystem = () => {
+const GraphicsCard = () => {
   const [responseData, setResponseData] = useState([]);
 
   const custList = () => {
@@ -33,12 +33,12 @@ const CoolingSystem = () => {
         <div className="product">
           {responseData.map(
             (product) =>
-              product.category === "cooling" &&
+              product.category === "graphiccard" &&
               product.quantity > 0 && (
                 <div className="productEach" key={product.compId}>
                   <div className="productImage">
                     <img
-                      src={`/images/Air & Water cooling/${product.link}.jpg`}
+                      src={`/images/GC/${product.link}.jpg`}
                       alt={product.name}
                     ></img>
                   </div>
@@ -62,4 +62,4 @@ const CoolingSystem = () => {
   );
 };
 
-export default CoolingSystem;
+export default GraphicsCard;

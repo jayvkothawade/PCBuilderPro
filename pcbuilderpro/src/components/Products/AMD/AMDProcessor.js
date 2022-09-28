@@ -7,7 +7,7 @@ const AMDProcessor = () => {
 
     const custList = () => {
         axios
-            .get("http://localhost:8080/components")
+            .get("http://localhost:8080/employee/components")
             .then((response) => {
                 setResponseData(response.data);
             })
@@ -26,7 +26,7 @@ const AMDProcessor = () => {
 
             <main>
                 <div className="subcat">
-                    <h2>Motherboard</h2>
+                    <h2>AMD Processors</h2>
                 </div>
 
                 <div className="product">
@@ -37,7 +37,7 @@ const AMDProcessor = () => {
                                 <div className="productEach" key={product.compId}>
                                     <div className="productImage">
                                         <img
-                                            src={`/Images/AMD/${product.link}.jpg`}
+                                            src={`/images/AMD/${product.link}.jpg`}
                                             alt={product.name}
                                         ></img>
                                     </div>
@@ -47,7 +47,7 @@ const AMDProcessor = () => {
                                         <p>₹{product.price}</p>
                                         <p>{product.description}</p>
                                         <div className="buttondiv">
-                                            <NavLink to={"/products/IntelMotherBoard"}>
+                                            <NavLink to={"/products/AMDMotherBoard"}>
                                                 <button className="buttonproduct">Select</button>
                                             </NavLink>
                                         </div>

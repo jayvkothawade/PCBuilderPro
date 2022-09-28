@@ -8,7 +8,7 @@ const SSD = () => {
 
   const custList = () => {
     axios
-      .get("http://localhost:8080/components")
+      .get("http://localhost:8080/employee/components")
       .then((response) => {
         setResponseData(response.data);
       })
@@ -38,7 +38,7 @@ const SSD = () => {
                 <div className="productEach" key={product.compId}>
                   <div className="productImage">
                     <img
-                      src={`/Images/Ssd/${product.link}.jpg`}
+                      src={`/images/SSD/${product.link}.jpg`}
                       alt={product.name}
                     ></img>
                   </div>

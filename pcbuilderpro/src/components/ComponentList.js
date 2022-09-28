@@ -56,6 +56,9 @@ const ComponentList = () => {
               <th>Price</th>
               <th>Quantity</th>
               <th>Description</th>
+              <th>Update</th>
+              <th>Delete</th>
+              
               
               
             </tr>

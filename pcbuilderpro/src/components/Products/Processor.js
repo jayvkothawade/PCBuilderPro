@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const AMDMotherBoard = () => {
+const Processor = () => {
     const [responseData, setResponseData] = useState([]);
 
     const custList = () => {
@@ -26,18 +26,18 @@ const AMDMotherBoard = () => {
 
             <main>
                 <div className="subcat">
-                    <h2>Motherboard</h2>
+                    <h2>Processors</h2>
                 </div>
 
                 <div className="product">
                     {responseData.map(
                         (product) =>
-                            product.category == "motherboard-a" &&
+                            (product.category === "amd" || product.category === "intel") &&
                             product.quantity > 0 && (
                                 <div className="productEach" key={product.compId}>
                                     <div className="productImage">
                                         <img
-                                            src={`/images/Motherboard/${product.link}.jpg`}
+                                            src={`/images/Processors/${product.link}.jpg`}
                                             alt={product.name}
                                         ></img>
                                     </div>
@@ -47,8 +47,8 @@ const AMDMotherBoard = () => {
                                         <p>₹{product.price}</p>
                                         <p>{product.description}</p>
                                         <div className="buttondiv">
-                                            <NavLink to={"/products/AMDMotherBoard"}>
-                                                <button className="buttonproduct">Add To Cart</button>
+                                            <NavLink to={"/products/IntelMotherBoard"}>
+                                                <button className="buttonproduct">Select</button>
                                             </NavLink>
                                         </div>
                                     </div>
@@ -61,4 +61,4 @@ const AMDMotherBoard = () => {
     );
 };
 
-export default AMDMotherBoard;
+export default Processor;
