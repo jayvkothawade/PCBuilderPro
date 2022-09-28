@@ -87,6 +87,16 @@ function App() {
 
 }
 
+function UserName() {
+  let username;
+  if (localStorage.getItem("user") != null) {
+    const decoded = jwt_decode(localStorage.getItem("user"));
+    username = decoded.sub;
+    const [inputs, setInputs] = useState(empState.state);
+    return username;
+  }
+}
+
 function AdminRoute({ children }) {
   // let myjwt = localStorage.getItem("user");
   let role;
