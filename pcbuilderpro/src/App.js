@@ -10,6 +10,8 @@ import EmployeesList from "./components/EmployeesList";
 import EmployeesUpdateForm from "./components/EmployeesUpdateForm";
 import AddComponentForm from "./components/AddComponentForm";
 import UpdateComponentForm from "./components/UpdateComponentForm";
+import CoolingSystem from "./components/CoolingSystem";
+import Desktop from "./components/Desktop";
 
 
 import AMDMotherBoard from "./components/Products/AMD/AMDMotherBoard";
@@ -19,6 +21,14 @@ import AMDProcessor from "./components/Products/AMD/AMDProcessor";
 import jwt_decode from "jwt-decode";
 
 import { Navigate, BrowserRouter, Routes, Route } from "react-router-dom";
+import Monitor from "./components/Monitor";
+import GraphicsCard from "./components/GraphicsCard";
+import ComputerCase from "./components/ComputerCase";
+import SSD from "./components/SSD";
+import Memory from "./components/Memory";
+import PowerSupply from "./components/PowerSupply";
+import Processor from "./components/Products/Processor";
+import Motherboards from "./components/Products/Motherboards";
 
 function App() {
   return (
@@ -54,10 +64,21 @@ function App() {
 
           </Route>
 
+          <Route path="/cooling" element={<CoolingSystem />}></Route>
+          <Route path="/desktop" element={<Desktop />}></Route>
+          <Route path="/monitors" element={<Monitor />}></Route>
+          <Route path="/graphicscard" element={<GraphicsCard />}></Route>
+          <Route path="/computercase" element={<ComputerCase />}></Route>
+          <Route path="/ssd" element={<SSD />}></Route>
+          <Route path="/memory" element={<Memory />}></Route>
+          <Route path="/powersupply" element={<PowerSupply />}></Route>
+          <Route path="/processors" element={<Processor />}></Route>
+          <Route path="/motherboards" element={<Motherboards />}></Route>
+          
           {/* Route For AMDProcessor and AMDMotherBoard  */}
           <Route
             path="/products/AMDProcessor"
-            element={<AMDProcessor></AMDProcessor>}
+            element={<AMDProcessor/>}
           ></Route>
           <Route
             path="/products/AMDMotherBoard"

@@ -27,7 +27,7 @@ const ComponentList = () => {
 
   const compDelete = evnt => {
     
-    axios.delete('http://localhost:8080/employee/componentDelete/{id}', { headers: headers })
+    axios.delete("http://localhost:8080/employee/componentDelete/{id}"+evnt.target.value, { headers: headers })
         .then(response => {
             compList();
         })
@@ -56,6 +56,9 @@ const ComponentList = () => {
               <th>Price</th>
               <th>Quantity</th>
               <th>Description</th>
+              <th>Update</th>
+              <th>Delete</th>
+              
               
               
             </tr>
@@ -68,7 +71,7 @@ const ComponentList = () => {
                 <td>{val.category}</td>
                 <td>{val.price}</td>
                 <td>{val.quantity}</td>
-                <td>{val.desciption}</td>
+                <td>{val.description}</td>
                 <td><Link to="/updatecomponent" state={val} class="btn btn-primary" >Update</Link> </td>
                 <td><button type="button" class="btn btn-danger" id={val.id} value={val.id} onClick={compDelete} >Delete</button> </td>
               </tr>

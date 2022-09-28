@@ -31,7 +31,7 @@ function UpdateComponentForm() {
         evnt.preventDefault();
        // console.log(JSON.stringify(inputs));
         console.log(inputs);
-        axios.put('http://localhost:8080/employee/updateComponent/'+inputs.compId, {"name":inputs.name ,"category": inputs.category, "price": inputs.price, "quantity": inputs.quantity, "desciption": inputs.desciption }, {headers: headers})
+        axios.put('http://localhost:8080/employee/updateComponent/'+inputs.compId, {"name":inputs.name ,"category": inputs.category, "price": inputs.price, "quantity": inputs.quantity, "description": inputs.description }, {headers: headers})
             .then(response => {
                 console.log(response.data);
                 alert(response.data);
@@ -111,7 +111,7 @@ function UpdateComponentForm() {
                     <br></br>
                     <div class="mb-3">
                         {/* <label for="address" class="form-label">Address:  </label> */}
-                        <input className="form-control" type="text" name="desciption" placeholder="Description" value={inputs.desciption} onChange={handleChange} />
+                        <input className="form-control" type="text" name="description" placeholder="Description" value={inputs.description} onChange={handleChange} />
                     </div>
                     
 
