@@ -26,7 +26,7 @@ const AMDMotherBoard = () => {
 
             <main>
                 <div className="subcat">
-                    <h2>Motherboard</h2>
+                    <h2>AMD Motherboard</h2>
                 </div>
 
                 <div className="product">

@@ -71,7 +71,7 @@ const ComponentList = () => {
                 <td>{val.category}</td>
                 <td>{val.price}</td>
                 <td>{val.quantity}</td>
-                <td>{val.desciption}</td>
+                <td>{val.description}</td>
                 <td><Link to="/updatecomponent" state={val} class="btn btn-primary" >Update</Link> </td>
                 <td><button type="button" class="btn btn-danger" id={val.id} value={val.id} onClick={compDelete} >Delete</button> </td>
               </tr>
