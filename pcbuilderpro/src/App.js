@@ -92,7 +92,7 @@ function UserName() {
   if (localStorage.getItem("user") != null) {
     const decoded = jwt_decode(localStorage.getItem("user"));
     username = decoded.sub;
-    const [inputs, setInputs] = useState(empState.state);
+    //const [inputs, setInputs] = useState(empState.state);
     return username;
   }
 }
