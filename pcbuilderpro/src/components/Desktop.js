@@ -17,6 +17,21 @@ const Desktop = () => {
       });
   };
 
+  const AddToCart =product => {
+    console.log(product.compId);
+    axios
+      .post("http://localhost:8080/customer/addCart/"+product.compId)
+    
+      .then((response) => {
+        alert(response.data);
+        //setResponseData(response.data);
+        
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+
   useEffect(() => {
     custList();
   }, []);
@@ -48,9 +63,9 @@ const Desktop = () => {
                     <p>₹{product.price}</p>
                     <p>{product.description}</p>
                     <div className="buttondiv">
-                      <NavLink to={"/products/IntelMotherBoard"}>
-                        <button className="buttonproduct">Add To Card</button>
-                      </NavLink>
+                      {/* <NavLink to={"/products/IntelMotherBoard"}> */}
+                        <button onClick={() => AddToCart(product)} className="buttonproduct">Add To Card</button>
+                      {/* </NavLink> */}
                     </div>
                   </div>
                 </div>

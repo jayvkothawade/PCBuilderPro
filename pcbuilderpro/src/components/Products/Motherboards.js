@@ -16,6 +16,21 @@ const Motherboards = () => {
             });
     };
 
+    const AddToCart =product => {
+        console.log(product.compId);
+        axios
+          .post("http://localhost:8080/customer/addCart/"+product.compId)
+        
+          .then((response) => {
+            alert(response.data);
+            //setResponseData(response.data);
+            
+          })
+          .catch((error) => {
+            alert(error);
+          });
+      };
+
     useEffect(() => {
         custList();
     }, []);
@@ -48,7 +63,7 @@ const Motherboards = () => {
                                         <p>{product.description}</p>
                                         <div className="buttondiv">
                                             <NavLink to={"/products/IntelMotherBoard"}>
-                                                <button className="buttonproduct">Select</button>
+                                                <button onClick={() => AddToCart(product)} className="buttonproduct">Select</button>
                                             </NavLink>
                                         </div>
                                     </div>
