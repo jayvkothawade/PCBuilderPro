@@ -3,12 +3,15 @@ header a {
   font-weight: bold;
   text-decoration: none;
 }
+
 main {
   padding: 0.5rem;
 }
+
 h2 {
   padding: 5px;
 }
+
 p {
   margin-bottom: 0.5rem;
 }
@@ -39,6 +42,7 @@ img {
   text-align: center;
   height: 120px;
 }
+
 .productInfo {
   padding: 5px;
 }

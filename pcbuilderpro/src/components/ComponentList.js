@@ -8,15 +8,15 @@ const ComponentList = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const headers = {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + user.access_token
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + user.access_token
   };
 
   const [responseData, setResponseData] = useState([]);
 
   const compList = () => {
     axios
-      .get("http://localhost:8080/employee/components",{headers: headers})
+      .get("http://localhost:8080/employee/components", { headers: headers })
       .then((response) => {
         setResponseData(response.data);
       })
@@ -26,16 +26,16 @@ const ComponentList = () => {
   };
 
   const compDelete = evnt => {
-    
-    axios.delete("http://localhost:8080/employee/componentDelete/{id}"+evnt.target.value, { headers: headers })
-        .then(response => {
-            compList();
-        })
-        .catch(error => {
-            console.log(evnt.target.value);
-            alert(error);
-        })
-};
+    alert(evnt.val.compId);
+    axios.delete("http://localhost:8080/employee/componentDelete/{id}" + evnt.compId, { headers: headers })
+      .then(response => {
+        compList();
+      })
+      .catch(error => {
+        console.log(evnt.target.value);
+        alert(error);
+      })
+  };
 
   useEffect(() => {
     compList();
@@ -43,9 +43,9 @@ const ComponentList = () => {
 
   return (
     <>
-    <h2 className="bg-dark text-light p-3 text-center">Components List</h2>
+      <h2 className="bg-dark text-light p-3 text-center">Components List</h2>
       <div className="container">
-        
+
         <br></br>
         <table class="table">
           <thead className="thead-dark">
@@ -58,9 +58,9 @@ const ComponentList = () => {
               <th>Description</th>
               <th>Update</th>
               <th>Delete</th>
-              
-              
-              
+
+
+
             </tr>
           </thead>
           <tbody>
@@ -73,7 +73,7 @@ const ComponentList = () => {
                 <td>{val.quantity}</td>
                 <td>{val.description}</td>
                 <td><Link to="/updatecomponent" state={val} class="btn btn-primary" >Update</Link> </td>
-                <td><button type="button" class="btn btn-danger" id={val.id} value={val.id} onClick={compDelete} >Delete</button> </td>
+                <td><button type="button" class="btn btn-danger" id={val.id} value={val.id} onClick={() => compDelete(val.compId)} >Delete</button> </td>
               </tr>
             ))}
           </tbody>

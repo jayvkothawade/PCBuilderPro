@@ -20,7 +20,7 @@ function Form1() {
         evnt.preventDefault();
         //alert(JSON.stringify(inputs));
 
-        axios.post('http://localhost:8080/register', inputs)
+        axios.post('http://localhost:8080/api/register/customer', inputs)
             .then(response => {
                 alert(response.data);
             })
@@ -49,7 +49,7 @@ function Form1() {
                     <br></br>
                     <div class="mb-3">
                         {/* <label for="password" class="form-label">Password:  </label> */}
-                        <input className="form-control" type="text" name="password" placeholder="Password" value={inputs.password} onChange={handleChange} />
+                        <input className="form-control" type="password" name="password" placeholder="Password" value={inputs.password} onChange={handleChange} />
                     </div>
                     <br></br>
                     <div class="mb-3">
