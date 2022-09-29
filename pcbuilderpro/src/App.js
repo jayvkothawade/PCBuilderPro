@@ -144,7 +144,7 @@ function AdminRoute({ children }) {
   }
 
   // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
-  if (role !== "admin" || localStorage.getItem("user") === null) {
+  if ((role !== "admin" && role !== "employee") || localStorage.getItem("user") === null) {
     return <Navigate to="/login" replace={true} />;
   }
 
