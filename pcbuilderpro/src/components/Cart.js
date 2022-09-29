@@ -28,7 +28,7 @@ function Cart() {
                 console.log(response.data);
             })
             .catch(error => {
-                alert(error);
+                alert("Cart is empty");
             });
     };
 
@@ -40,7 +40,7 @@ function Cart() {
                 //console.log(response.data);
             })
             .catch(error => {
-                alert(error);
+                alert("Please place an order ");
             });
 
 
