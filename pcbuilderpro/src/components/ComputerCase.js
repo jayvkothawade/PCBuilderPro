@@ -32,7 +32,7 @@ const ComputerCase = () => {
       })
       .catch((error) => {
         alert("Please Login to Add to Cart");
-        alert(error);
+        console.log(error);
       });
   };
 
