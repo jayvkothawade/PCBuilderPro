@@ -29,6 +29,8 @@ import Memory from "./components/Memory";
 import PowerSupply from "./components/PowerSupply";
 import Processor from "./components/Products/Processor";
 import Motherboards from "./components/Products/Motherboards";
+import Cart from "./components/Cart";
+import Order from "./components/Order";
 
 function App() {
   return (
@@ -74,6 +76,8 @@ function App() {
           <Route path="/powersupply" element={<PowerSupply />}></Route>
           <Route path="/processors" element={<Processor />}></Route>
           <Route path="/motherboards" element={<Motherboards />}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/orders" element={<Order />}></Route>
           
           {/* Route For AMDProcessor and AMDMotherBoard  */}
           <Route
