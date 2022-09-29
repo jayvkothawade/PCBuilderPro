@@ -40,6 +40,7 @@ function Form1() {
                     <div class="mb-3 mt-3 center">
                         {/* <label for="name" class="form-label">Name:  </label> */}
                         <input className="form-control" type="text" name="name" placeholder="Name" value={inputs.name} onChange={handleChange} />
+                        
                     </div>
                     <br></br>
                     <div class="mb-3">

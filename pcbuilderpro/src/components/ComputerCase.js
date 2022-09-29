@@ -4,6 +4,12 @@ import "./OtherComp.css";
 import { NavLink } from "react-router-dom";
 
 const ComputerCase = () => {
+  // const user = JSON.parse(localStorage.getItem("user"));
+
+  // const headers = {
+  //   'Content-Type': 'application/json',
+  //   'Authorization': 'Bearer ' + user.access_token
+  // };
   const [responseData, setResponseData] = useState([]);
 
   const custList = () => {

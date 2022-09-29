@@ -31,6 +31,10 @@ import Processor from "./components/Products/Processor";
 import Motherboards from "./components/Products/Motherboards";
 import Cart from "./components/Cart";
 import Order from "./components/Order";
+import AMDPreConfigured from "./components/AMDPreConfigured";
+import IntelPreConfigured from "./components/IntelPreConfigured";
+import AdminOrders from "./components/AdminOrders";
+import OrderUpdateForm from "./components/UpdateOrder";
 
 function App() {
   return (
@@ -83,7 +87,10 @@ function App() {
 
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/orders" element={<Order />}></Route>
-          
+          <Route path="/amdpreconf" element={<AMDPreConfigured />}></Route>
+          <Route path="/intpreconf" element={<IntelPreConfigured />}></Route>
+          <Route path="/adminorders" element={<AdminOrders />}></Route>
+          <Route path="/updateorder" element={<OrderUpdateForm />}></Route>
 
           {/* Route For AMDProcessor and AMDMotherBoard  */}
           <Route

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Desktop = () => {
+
   const [responseData, setResponseData] = useState([]);
 
   const custList = () => {
@@ -64,7 +65,7 @@ const Desktop = () => {
                     <p>{product.description}</p>
                     <div className="buttondiv">
                       {/* <NavLink to={"/products/IntelMotherBoard"}> */}
-                        <button onClick={() => AddToCart(product)} className="buttonproduct">Add To Card</button>
+                        <button onClick={() => AddToCart(product)} className="buttonproduct">Add To Cart</button>
                       {/* </NavLink> */}
                     </div>
                   </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Row, Col, Container } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import Mostpopularcategory from "./Mostpopularcategory";
-import { Link } from "react-router-dom";
+import { Link , NavLink} from "react-router-dom";
 // sample comment
 
 
@@ -22,40 +22,31 @@ function welcome() {
                                 style={{ height: "400px", objectFit: "cover" }}
                                 alt="First slide"
                             />
+                            <NavLink to={"/intpreconf"}>
                             <Carousel.Caption>
-                                <h3>Our Setups</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+
+                                <h3>INTEL PRE-CONFIGURED</h3>
+                                <p>Best choice for GAMING & STREAMING pc</p>
                             </Carousel.Caption>
+                            </NavLink>
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
+                                // src="https://voltedpc.in/assets/images/20201101_002052.jpg"
                                 src="https://voltedpc.in/assets/images/20201101_002052.jpg"
                                 style={{ height: "400px", objectFit: "cover" }}
                                 alt="Second slide"
                             />
-
+                            <NavLink to={"/amdpreconf"}>
                             <Carousel.Caption>
-                                <h3>Second slide label</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>AMD PRE-CONFIGURED</h3>
+                                <p>Best choice for GAMING & STREAMING pc</p>
                             </Carousel.Caption>
+                            </NavLink>
+                            
                         </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src="https://123pcsolutions.com/wp-content/uploads/2022/08/3.jpg"
-                                style={{ height: "400px", objectFit: "cover" }}
-                                alt="Third slide"
-                            />
-
-                            <Carousel.Caption>
-                                <h3>Third slide label</h3>
-                                <p>
-                                    Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                                </p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    </Carousel>
+                        </Carousel>
                 </div>
                 <div className="col-4">
                     <br></br>

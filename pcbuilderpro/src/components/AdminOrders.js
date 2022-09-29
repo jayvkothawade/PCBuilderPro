@@ -4,7 +4,14 @@ import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
 
-function Order() {
+function AdminOrders() {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + user.access_token
+    };
+
     let d = jwt_decode(localStorage.getItem("user"));
 
     const [responseData, setResponseData] = useState([]);
@@ -14,7 +21,7 @@ function Order() {
 
     const GetOrder = () => {
 
-        axios.get('http://localhost:8080/customer/customerOrders/'+d.sub)
+        axios.get('http://localhost:8080/employee/orders',{headers: headers})
             .then(response => {
                 setResponseData(response.data);
                 
@@ -35,7 +42,7 @@ function Order() {
     return (
         <div>
             <div>
-                <h2 className="bg-dark text-light p-3 text-center">My Orders</h2>
+                <h2 className="bg-dark text-light p-3 text-center">Orders Recieved</h2>
                 <div class="container">
 
                     <br></br>
@@ -50,7 +57,7 @@ function Order() {
                                 <th>Transaction ID</th>
                                 <th>Total Bill</th>
                                 <th> Payment status</th>
-                                <th>FeedBack</th>
+                                <th>Update</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,7 +71,7 @@ function Order() {
                                         <td>{val.trasactionId}</td>
                                         <td>{val.bill.amount}</td>
                                         <td>{val.bill.status}</td>
-                                     <td><Link to="/updateemployee" state={val} class="btn btn-primary" >Give feedback</Link> </td>
+                                     <td><Link to="/updateorder" state={val} class="btn btn-primary" >Update</Link> </td>
 
                                     </tr>
                                 )
@@ -84,4 +91,4 @@ function Order() {
     );
 }
 
-export default Order;
+export default AdminOrders;
