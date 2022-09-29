@@ -46,23 +46,26 @@ function App() {
 
 
       <BrowserRouter>
+
+        <Navbar></Navbar>
         <Routes>
-          <Route path='/' element={<Navbar />} >
-            <Route index element={<Welcome />} ></Route>
-            <Route path='login' element={<LoginForm />} ></Route>
-            <Route path='registeruser' element={<Form1 />} ></Route>
-            <Route path="components" element={<ComponentList />}></Route>
-            {/* Admin Routes */}
-            <Route path="customers" element={<AdminRoute><CustomerList /></AdminRoute>}></Route>
 
-            <Route path="add-employee" element={<AdminRoute><EmployeesAddForm /></AdminRoute>}></Route>
-            <Route path="employees" element={<AdminRoute><EmployeesList /></AdminRoute>}></Route>
-            <Route path="updateemployee" element={<AdminRoute><EmployeesUpdateForm /></AdminRoute>}></Route>
-            <Route path="addcomponent" element={<AdminRoute><AddComponentForm /></AdminRoute>}></Route>
-            <Route path="updatecomponent" element={<AdminRoute><UpdateComponentForm /></AdminRoute>}></Route>
+          <Route path='/' element={<Welcome />} ></Route>
+          {/* <Route index element={} ></Route> */}
+          <Route path='login' element={<LoginForm />} ></Route>
+          <Route path='registeruser' element={<Form1 />} ></Route>
+          <Route path="components" element={<ComponentList />}></Route>
+          {/* Admin Routes */}
+          <Route path="customers" element={<AdminRoute><CustomerList /></AdminRoute>}></Route>
+
+          <Route path="add-employee" element={<AdminRoute><EmployeesAddForm /></AdminRoute>}></Route>
+          <Route path="employees" element={<AdminRoute><EmployeesList /></AdminRoute>}></Route>
+          <Route path="updateemployee" element={<AdminRoute><EmployeesUpdateForm /></AdminRoute>}></Route>
+          <Route path="addcomponent" element={<AdminRoute><AddComponentForm /></AdminRoute>}></Route>
+          <Route path="updatecomponent" element={<AdminRoute><UpdateComponentForm /></AdminRoute>}></Route>
 
 
-          </Route>
+
 
           <Route path="/cooling" element={<CoolingSystem />}></Route>
           <Route path="/desktop" element={<Desktop />}></Route>
@@ -74,11 +77,11 @@ function App() {
           <Route path="/powersupply" element={<PowerSupply />}></Route>
           <Route path="/processors" element={<Processor />}></Route>
           <Route path="/motherboards" element={<Motherboards />}></Route>
-          
+
           {/* Route For AMDProcessor and AMDMotherBoard  */}
           <Route
             path="/products/AMDProcessor"
-            element={<AMDProcessor/>}
+            element={<AMDProcessor />}
           ></Route>
           <Route
             path="/products/AMDMotherBoard"
@@ -110,7 +113,7 @@ function App() {
 
 function UserName() {
   let username;
-  if (localStorage.getItem("user") != null) {
+  if (localStorage.getItem("user") !== null) {
     const decoded = jwt_decode(localStorage.getItem("user"));
     username = decoded.sub;
     //const [inputs, setInputs] = useState(empState.state);
@@ -121,13 +124,13 @@ function UserName() {
 function AdminRoute({ children }) {
   // let myjwt = localStorage.getItem("user");
   let role;
-  if (localStorage.getItem("user") != null) {
+  if (localStorage.getItem("user") !== null) {
     const decoded = jwt_decode(localStorage.getItem("user"));
     role = decoded.roles[0];   // role = admin
   }
 
   // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
-  if (role != "admin" || localStorage.getItem("user") === null) {
+  if (role !== "admin" || localStorage.getItem("user") === null) {
     return <Navigate to="/login" replace={true} />;
   }
 
@@ -137,13 +140,13 @@ function AdminRoute({ children }) {
 function CustomerRoute({ children }) {
   // let myjwt = localStorage.getItem("user");
   let role;
-  if (localStorage.getItem("user") != null) {
+  if (localStorage.getItem("user") !== null) {
     const decoded = jwt_decode(localStorage.getItem("user"));
     role = decoded.roles[0];   // role = admin
   }
 
   // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
-  if (role != "customer" || localStorage.getItem("user") === null) {
+  if (role !== "customer" || localStorage.getItem("user") === null) {
     return <Navigate to="/login" replace={true} />;
   }
   return children;
@@ -152,22 +155,22 @@ function CustomerRoute({ children }) {
 function EmployeeRoute({ children }) {
   // let myjwt = localStorage.getItem("user");
   let role;
-  if (localStorage.getItem("user") != null) {
+  if (localStorage.getItem("user") !== null) {
     const decoded = jwt_decode(localStorage.getItem("user"));
     role = decoded.roles[0];   // role = admin
   }
 
   // IF NOT LOGGED IN :: REDIRECT THE USER TO LOGIN
-  if (role != "employee" || localStorage.getItem("user") === null) {
+  if (role !== "employee" || localStorage.getItem("user") === null) {
     return <Navigate to="/login" replace={true} />;
   }
   return children;
 }
 
 function UnProtectedRoute({ children }) {
-  let myjwt = localStorage.getItem("user");
+  //let myjwt = localStorage.getItem("user");
 
-  if (myjwt) {
+  if (localStorage.getItem("user") === null) {
     return <Navigate to="/" replace={true} />;
   }
 

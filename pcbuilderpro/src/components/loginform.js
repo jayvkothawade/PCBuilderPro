@@ -5,10 +5,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import qs from 'qs';
 import jwt_decode from "jwt-decode";
 
-function LoginForm() {
 
+function LoginForm() {
+    const navigate = useNavigate();
     let formRef = useRef();
-    let navigate = useNavigate();
     let [isError, setIsError] = useState(false);
     const [inputs, setInputs] = useState({});
 
@@ -37,16 +37,15 @@ function LoginForm() {
         axios.post('http://localhost:8080/login', qs.stringify(inputs))
             .then(response => {
                 alert(JSON.stringify(response.data));
-                // var decoded = jwt_decode(response.data.access_token);
-                // const role = decoded.roles[0];   // role = admin 
-                // console.log(role);
-                // console.log(decoded.sub);
                 if (response.data.access_token) {
                     localStorage.setItem("user", JSON.stringify(response.data));
                     var decoded = jwt_decode(localStorage.getItem("user"));
                     const role = decoded.roles[0];   // role = admin 
                     console.log(role);
                     console.log(decoded.sub);
+
+                    navigate('/')
+                    window.location.reload(false);
                 }
             }).catch(error => {
                 console.error(error);
@@ -56,16 +55,7 @@ function LoginForm() {
             });
     };
 
-    // const [userName, setUser] = useState(0);
-    // const getUserName = () => {
-    //     axios.get('http://localhost:8080/api/userName', d.sub)
-    //         .then(response => {
-    //             setUser(response.data);
-    //         })
-    //         .catch(error => {
-    //             alert(error);
-    //         });
-    // };
+
 
     // const getCurrentUser = () => {
     //     var decoded = jwt_decode(localStorage.getItem("user"));
