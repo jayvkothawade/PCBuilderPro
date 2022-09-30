@@ -33,8 +33,8 @@ function EmployeesList() {
 
     }, []);
 
-    const empDelete = evnt => {
-        axios.delete('http://localhost:8080/employee/deleteEmployee/{id}' + evnt.target.value, { headers: headers })
+    const empDelete = sap => {
+        axios.delete('http://localhost:8080/employee/deleteEmployee/'+sap.id, { headers: headers })
             .then(response => {
                 empList();
             })
@@ -77,7 +77,7 @@ function EmployeesList() {
                                     <td>{val.pincode}</td>
                                     <td><Link to="/updateemployee" state={val} class="btn btn-primary" >Update</Link> </td>
     
-                                    <td><button type="button" class="btn btn-danger" id={val.id} value={val.id} onClick={empDelete} >Delete</button> </td>
+                                    <td><button type="button" class="btn btn-danger" id={val.id} value={val.id} onClick={() => empDelete(val)} >Delete</button> </td>
                                 </tr>
                             )
                         }

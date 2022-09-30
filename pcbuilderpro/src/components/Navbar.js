@@ -84,6 +84,12 @@ function AdminNavbar() {
               <li class="nav-item">
                 <Link class="nav-link" to="/adminorders" >Orders</Link>
               </li>
+              <li class="nav-item">
+                <Link class="nav-link" to="/add-employee" >Add Employee</Link>
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" to="/addcomponent" >Add Component</Link>
+              </li>
             </ul>
           </div>
         </div>
