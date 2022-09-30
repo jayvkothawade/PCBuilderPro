@@ -35,6 +35,7 @@ import AMDPreConfigured from "./components/AMDPreConfigured";
 import IntelPreConfigured from "./components/IntelPreConfigured";
 import AdminOrders from "./components/AdminOrders";
 import OrderUpdateForm from "./components/UpdateOrder";
+import FeedbackForm from "./components/FeedbackForm";
 
 function App() {
   return (
@@ -84,7 +85,7 @@ function App() {
           <Route path="/processors" element={<Processor />}></Route>
           <Route path="/motherboards" element={<Motherboards />}></Route>
 
-
+          <Route path="/feedback" element={<FeedbackForm />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/orders" element={<Order />}></Route>
           <Route path="/amdpreconf" element={<AMDPreConfigured />}></Route>
