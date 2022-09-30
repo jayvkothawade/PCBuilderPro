@@ -60,6 +60,16 @@ function Cart() {
 
     };
 
+    const cartDelete = sap => {
+        axios.delete('http://localhost:8080/customer/deleteItem/'+sap.id, { headers: headers })
+            .then(response => {
+                empList();
+            })
+            .catch(error => {
+                alert(error);
+            })
+    };
+
     
 
 
@@ -85,6 +95,7 @@ function Cart() {
                             <th>Id</th>
                             <th>Name</th>
                             <th>Price</th>
+                            
 
                         </tr>
                     </thead>
@@ -95,6 +106,7 @@ function Cart() {
                                     <td>{val.id}</td>
                                     <td>{val.name}</td>
                                     <td>{val.price}</td>
+                                    <td><button type="button" class="btn btn-danger" id={val.id} value={val.id} onClick={() => cartDelete(val)} >Remove</button> </td>
 
                                 </tr>
                             )

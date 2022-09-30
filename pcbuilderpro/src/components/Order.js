@@ -8,17 +8,20 @@ function Order() {
     let d = jwt_decode(localStorage.getItem("user"));
 
     const [responseData, setResponseData] = useState([]);
-
+   
+     
     
 
 
+    
+    
+    
     const GetOrder = () => {
 
         axios.get('http://localhost:8080/customer/customerOrders/'+d.sub)
             .then(response => {
                 setResponseData(response.data);
                 
-                //console.log(response.data);
             })
             .catch(error => {
                 alert(error);
@@ -43,7 +46,7 @@ function Order() {
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Order ID</th>
+                                <th >Order ID</th>
                                 <th>Delivered Date</th>
                                 <th>Order Date</th>
                                 <th>Status</th>
@@ -64,7 +67,7 @@ function Order() {
                                         <td>{val.trasactionId}</td>
                                         <td>{val.bill.amount}</td>
                                         <td>{val.bill.status}</td>
-                                     <td><Link to="/updateemployee" state={val} class="btn btn-primary" >Give feedback</Link> </td>
+                                     <td><Link to="/feedback" state={val.orderId} class="btn btn-primary" >Give feedback</Link> </td>
 
                                     </tr>
                                 )

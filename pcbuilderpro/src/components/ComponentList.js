@@ -25,14 +25,14 @@ const ComponentList = () => {
       });
   };
 
-  const compDelete = evnt => {
-    alert(evnt.val.compId);
-    axios.delete("http://localhost:8080/employee/componentDelete/{id}" + evnt.compId, { headers: headers })
+  const compDelete = sap => {
+    console.log( sap.compId);
+    axios.delete("http://localhost:8080/employee/componentDelete/" + sap.compId, { headers: headers })
       .then(response => {
         compList();
       })
       .catch(error => {
-        console.log(evnt.target.value);
+        //console.log(evnt.target.value);
         alert(error);
       })
   };
@@ -73,7 +73,7 @@ const ComponentList = () => {
                 <td>{val.quantity}</td>
                 <td>{val.description}</td>
                 <td><Link to="/updatecomponent" state={val} class="btn btn-primary" >Update</Link> </td>
-                <td><button type="button" class="btn btn-danger" id={val.id} value={val.id} onClick={() => compDelete(val.compId)} >Delete</button> </td>
+                <td><button type="button" class="btn btn-danger"  onClick={() => compDelete(val)} >Delete</button> </td>
               </tr>
             ))}
           </tbody>
