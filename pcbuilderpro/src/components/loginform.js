@@ -36,7 +36,8 @@ function LoginForm() {
 
         axios.post('http://localhost:8080/login', qs.stringify(inputs))
             .then(response => {
-                alert(JSON.stringify(response.data));
+                //alert(JSON.stringify(response.data));
+                alert("Login successful");
                 if (response.data.access_token) {
                     localStorage.setItem("user", JSON.stringify(response.data));
                     var decoded = jwt_decode(localStorage.getItem("user"));
@@ -55,39 +56,25 @@ function LoginForm() {
             });
     };
 
-
-
-    // const getCurrentUser = () => {
-    //     var decoded = jwt_decode(localStorage.getItem("user"));
-    //     const roleName = decoded.roles[0];   // role = admin 
-    //     // console.log(role);
-    //     // console.log(decoded.sub);
-
-    //     const user = {
-    //         name: userName,
-    //         role: roleName
-    //     };
-
-    //     return user;
-    // };
-
     return <div>
         <div>
-            <h2 className="bg-dark text-light text-center p-3">Login</h2>
+            <h2 className="bg-dark text-light text-center p-1">Login</h2>
             <br></br>
             <br></br>
             <div className="container w-25">
                 {/* <form action="" onSubmit={handleSubmit} > */}
-                <form ref={formRef} className="needs-validation " noValidate>
+                <form ref={formRef} className="needs-validation" noValidate>
                     <div class="mb-3">
                         {/* <label for="email" class="form-label">Email:  </label> */}
                         <input className="form-control" type="email" name="email" placeholder="Enter email" value={inputs.email} onChange={handleChange} required />
-                        <div className="invalid-feedback">email is required</div>
+                        <div className="valid-feedback">email is valid ✅</div>
+                        <div className="invalid-feedback">email is invalid</div>
                     </div>
                     <br></br>
                     <div class="mb-3">
                         {/* <label for="password" class="form-label">Password:  </label> */}
                         <input className="form-control" type="password" name="password" placeholder="Password" value={inputs.password} onChange={handleChange} required />
+                        <div className="valid-feedback">Password is valid ✅</div>
                         <div className="invalid-feedback">Password is required</div>
                     </div>
                     <br></br>
