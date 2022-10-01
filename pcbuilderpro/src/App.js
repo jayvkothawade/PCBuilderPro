@@ -36,6 +36,7 @@ import IntelPreConfigured from "./components/IntelPreConfigured";
 import AdminOrders from "./components/AdminOrders";
 import OrderUpdateForm from "./components/UpdateOrder";
 import FeedbackForm from "./components/FeedbackForm";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   return (
@@ -72,8 +73,7 @@ function App() {
           <Route path="updatecomponent" element={<AdminRoute><UpdateComponentForm /></AdminRoute>}></Route>
 
 
-
-
+          <Route path="*" element={<PageNotFound />}></Route>
           <Route path="/cooling" element={<CoolingSystem />}></Route>
           <Route path="/desktop" element={<Desktop />}></Route>
           <Route path="/monitors" element={<Monitor />}></Route>
@@ -120,7 +120,7 @@ function App() {
 
 
 
-    </div>
+    </div >
   );
 
 
