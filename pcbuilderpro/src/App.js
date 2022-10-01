@@ -37,20 +37,10 @@ import AdminOrders from "./components/AdminOrders";
 import OrderUpdateForm from "./components/UpdateOrder";
 import FeedbackForm from "./components/FeedbackForm";
 
+
 function App() {
   return (
     <div >
-      {/* <LoginForm />
-     <Form1 /> */}
-
-      {/* <BrowserRouter>
-   <Routes>
-   <Route path='/login' element={<LoginForm />} ></Route>
-   <Route path='/registeruser' element={<Form1 />} ></Route>
-   <Route path='/index' element={<Navbar />} ></Route>
-   </Routes>
-   </BrowserRouter> */}
-
 
       <BrowserRouter>
 
@@ -92,6 +82,7 @@ function App() {
           <Route path="/intpreconf" element={<IntelPreConfigured />}></Route>
           <Route path="/adminorders" element={<AdminOrders />}></Route>
           <Route path="/updateorder" element={<OrderUpdateForm />}></Route>
+
 
           {/* Route For AMDProcessor and AMDMotherBoard  */}
           <Route
