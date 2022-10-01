@@ -54,7 +54,7 @@ function Form1() {
                 <form ref={formRef} className="needs-validation" noValidate>
                     <div class="mb-3 mt-3 center">
                         {/* <label for="name" class="form-label">Name:  </label> */}
-                        <input className="form-control" type="text" name="name" placeholder="Name" value={inputs.name} onChange={handleChange} pattern="[a-zA-Z]{3,25}" required />
+                        <input className="form-control" type="text" name="name" placeholder="Name" value={inputs.name} onChange={handleChange} pattern="[a-z\sA-Z]{3,25}" required />
                         <div className="valid-feedback">Name is valid ✅</div>
                         <div className="invalid-feedback">Name is invalid</div>
                     </div>
