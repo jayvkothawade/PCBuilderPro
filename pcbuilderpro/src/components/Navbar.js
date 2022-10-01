@@ -3,6 +3,8 @@ import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import GetCurrentUser from "./GetCurrentUser";
 import { Nav, NavDropdown } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Navbar() {
   let role;
@@ -93,11 +95,23 @@ function AdminNavbar() {
             </ul>
           </div>
         </div>
-        <Nav>
-          <NavDropdown title={user}>
+        {/* <Nav>
+          <NavDropdown className="text-light" title={user}>
             <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
           </NavDropdown>
-        </Nav>
+        </Nav> */}
+        <ul className="navbar-nav">
+          <li className="nav-item dropdown">
+            <a className="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {user}
+            </a>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a className="dropdown-item" onClick={logout} href="#!">Logout</a>
+            </div>
+          </li>
+
+        </ul>
+
       </nav>
 
       <Outlet />
@@ -110,12 +124,46 @@ function CustomerNavbar() {
 
   let navigate = useNavigate();
   let user = GetCurrentUser();
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + user.access_token
+  };
+
   const logout = () => {
     localStorage.clear();
+
+    axios
+      .post("http://localhost:8080/customer/clearCart")
+      .then((response) => {
+        console.log("cart cleared");
+      })
+      .catch((error) => {
+        console.log("error in cart clear");
+      });
+
     navigate('/', { replace: true });
     //navigate(0);
     window.location.reload(false);
   }
+
+  const [cartNum, setcartNum] = useState("");
+
+  const cartNumber = () => {
+    axios
+      .get("http://localhost:8080/customer/getCartNumber")
+      .then((response) => {
+        setcartNum(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    cartNumber();
+  }, []);
+
   return (
     <>
 
@@ -136,20 +184,27 @@ function CustomerNavbar() {
 
             </ul>
           </div>
-        </div>
-        <NavLink to="/cart">
-          <button type="button" class="btn btn-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
-            </svg>
-          </button>
-        </NavLink>
-        <Nav bg="light">
+          <NavLink to="/cart">
+            <button type="button" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+              </svg>
+              {cartNum}
+            </button>
+          </NavLink>
+          <ul className="navbar-nav">
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {user}
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a className="dropdown-item" onClick={logout} href="#!">Logout</a>
+              </div>
+            </li>
 
-          <NavDropdown title={user}>
-            <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
+          </ul>
+        </div>
+
       </nav>
 
       <Outlet />

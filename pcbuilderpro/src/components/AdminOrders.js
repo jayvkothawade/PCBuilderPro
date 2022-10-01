@@ -16,28 +16,28 @@ function AdminOrders() {
 
     const [responseData, setResponseData] = useState([]);
 
-    
+
 
 
     const GetOrder = () => {
 
-        axios.get('http://localhost:8080/employee/orders',{headers: headers})
+        axios.get('http://localhost:8080/employee/orders', { headers: headers })
             .then(response => {
                 setResponseData(response.data);
-                
+
                 //console.log(response.data);
             })
             .catch(error => {
                 alert(error);
             });
 
-        };
+    };
 
-        useEffect(() => {
+    useEffect(() => {
 
-            GetOrder();
-    
-        }, []);
+        GetOrder();
+
+    }, []);
 
     return (
         <div>
@@ -58,6 +58,7 @@ function AdminOrders() {
                                 <th>Total Bill</th>
                                 <th> Payment status</th>
                                 <th>Update</th>
+                                {/* <th>Feedback</th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -71,7 +72,10 @@ function AdminOrders() {
                                         <td>{val.trasactionId}</td>
                                         <td>{val.bill.amount}</td>
                                         <td>{val.bill.status}</td>
-                                     <td><Link to="/updateorder" state={val} class="btn btn-primary" >Update</Link> </td>
+                                        <td><Link to="/updateorder" state={val} class="btn btn-primary" >Update</Link> </td>
+
+                                        {/* <td>{val.feedback}</td> */}
+
 
                                     </tr>
                                 )
@@ -79,9 +83,9 @@ function AdminOrders() {
                         </tbody>
                     </table>
 
-                    
 
-                    
+
+
 
                 </div>
 
