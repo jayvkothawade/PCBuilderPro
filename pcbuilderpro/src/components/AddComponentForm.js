@@ -77,12 +77,12 @@ function AddComponentForm() {
                         <br></br>
                         <div class="mb-3">
                             {/* <label for="address" class="form-label">Address:  </label> */}
-                            <input className="form-control" type="text" name="price" placeholder="Price" value={inputs.price} onChange={handleChange} />
+                            <input className="form-control" type="number" name="price" placeholder="Price" value={inputs.price} onChange={handleChange} />
                         </div>
                         <br></br>
                         <div class="mb-3">
                             {/* <label for="address" class="form-label">Address:  </label> */}
-                            <input className="form-control" type="text" name="quantity" placeholder="Quantity" value={inputs.quantity} onChange={handleChange} />
+                            <input className="form-control" type="number" name="quantity" placeholder="Quantity" value={inputs.quantity} onChange={handleChange} />
                         </div>
                         <br></br>
 
