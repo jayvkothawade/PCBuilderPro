@@ -47,7 +47,7 @@ const IntelProcessor = () => {
                 <div className="product">
                     {responseData.map(
                         (product) =>
-                            product.category == "intel" &&
+                            product.category === "intel" &&
                             product.quantity > 0 && (
                                 <div className="productEach" key={product.compId}>
                                     <div className="productImage">

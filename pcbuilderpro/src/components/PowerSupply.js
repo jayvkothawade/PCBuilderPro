@@ -64,7 +64,7 @@ const PowerSupply = () => {
                     <p>{product.description}</p>
                     <div className="buttondiv">
                       <NavLink to={"/products/IntelMotherBoard"}>
-                        <button onClick={() => AddToCart(product)} className="buttonproduct">Add To Card</button>
+                        <button onClick={() => AddToCart(product)} className="buttonproduct">Add To Cart</button>
                       </NavLink>
                     </div>
                   </div>
