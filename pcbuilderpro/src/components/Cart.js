@@ -46,8 +46,38 @@ function Cart() {
 
     }
 
+    const [otp, setOTP] = useState("");
+
+    const handleChange = event => {
+        setOTP(event.target.value);
+        //console.log(event.target.value);
+    }
+
+    const sendOTP = () => {
+        axios.post('http://localhost:8080/customer/sendMail/' + d.sub)
+            .then(response => {
+                //setResponseData(response.data);
+                alert(response.data);
+                //console.log(response.data);
+            })
+            .catch(error => {
+                alert(error);
+            });
+    }
+
     const AddOrder = () => {
-        axios.post('http://localhost:8080/customer/addOrder/'+d.sub)
+        // console.log(otp);
+        // axios.post('http://localhost:8080/customer/getOTP/' + otp)
+        //     .then(response => {
+        //         //setResponseData(response.data);
+        //         alert(response.data);
+        //         //console.log(response.data);
+        //     })
+        //     .catch(error => {
+        //         alert("OTP send error");
+        //     });
+
+        axios.post('http://localhost:8080/customer/addOrder/' + d.sub)
             .then(response => {
                 //setResponseData(response.data);
                 alert(response.data);
@@ -61,7 +91,7 @@ function Cart() {
     };
 
     const cartDelete = sap => {
-        axios.delete('http://localhost:8080/customer/deleteItem/'+sap.id, { headers: headers })
+        axios.delete('http://localhost:8080/customer/deleteItem/' + sap.id, { headers: headers })
             .then(response => {
                 empList();
             })
@@ -70,7 +100,7 @@ function Cart() {
             })
     };
 
-    
+
 
 
 
@@ -95,7 +125,7 @@ function Cart() {
                             <th>Id</th>
                             <th>Name</th>
                             <th>Price</th>
-                            
+
 
                         </tr>
                     </thead>
@@ -113,7 +143,7 @@ function Cart() {
                         }
                     </tbody>
                 </table>
-                
+
                 <div className="total">
                     <span>Total Price of your Cart is : </span>
                     <span className="mx-auto"><strong>{test}</strong> INR</span>
@@ -122,13 +152,20 @@ function Cart() {
                 <br></br>
 
                 <div>
-               
-            <button className='btn btn-success' onClick={AddOrder}>Check Out</button>
-            
+                    <button onClick={sendOTP}>Send OTP</button>
+                    <div className="">
+                        <span>Enter OTP : </span>
+                        <span className="mx-auto"><input type="text" name="otp" onChange={handleChange} value={otp}></input> </span>
 
-          </div>
+                    </div>
+                    <br></br>
 
-        </div>
+                    <button className='btn btn-success' onClick={AddOrder}>Confirm payment</button>
+
+
+                </div>
+
+            </div>
 
         </div>
     );
